@@ -611,7 +611,7 @@ function closeLightbox(){document.getElementById('lightbox').classList.remove('o
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
 function toggleFaq(btn){const item=btn.parentElement,open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!open)item.classList.add('open')}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzEmt5_zfo76jglM6nd7ZfnB5_mlCMt2JAh3SVJD9usj_Ti9DenF-jr2UxjHlymUryobQ/exec';
+const SCRIPT_URL = '/.netlify/functions/feedback';
 
 function previewFbPhoto(e){
   const f=e.target.files[0];if(!f)return;
@@ -633,53 +633,24 @@ function handleFeedback(e){
   const stars=parseInt(rating.value);
   const btn=e.target.querySelector('.submit-btn');
   btn.textContent='Sending...';btn.disabled=true;
-
   const payload={name,message:msg,rating:stars,photo:photo.startsWith('data:')?photo:''};
-
-  // Use JSONP for POST by encoding data in URL params
-  const callbackName='gsPost_'+Date.now();
-  window[callbackName]=function(res){
-    const s=document.getElementById('gsPostScript');
-    if(s)s.remove();
-    delete window[callbackName];
+  fetch(SCRIPT_URL,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  })
+  .then(r=>r.json())
+  .then(()=>{
     addFbCard(payload);
     showToast('Thank you! Your feedback is now live 🎉');
     e.target.reset();
     document.getElementById('fbPhotoPreview').style.display='none';
     document.getElementById('fbPhotoPreview').src='';
-    btn.textContent='Send Message';btn.disabled=false;
-  };
-
-  // Build URL with all params
-  const params=new URLSearchParams({
-    callback: callbackName,
-    name: payload.name,
-    message: payload.message,
-    rating: payload.rating,
-    action: 'post'
-  });
-
-  const script=document.createElement('script');
-  script.id='gsPostScript';
-  script.src=SCRIPT_URL+'?'+params.toString();
-  script.onerror=function(){
-    // Still show the card even if script errors
-    addFbCard(payload);
-    showToast('Thank you for your feedback! 🎉');
-    e.target.reset();
-    btn.textContent='Send Message';btn.disabled=false;
-  };
-  // Timeout fallback after 5s
-  setTimeout(()=>{
-    if(document.getElementById('gsPostScript')){
-      document.getElementById('gsPostScript').remove();
-      addFbCard(payload);
-      showToast('Thank you for your feedback! 🎉');
-      e.target.reset();
-      btn.textContent='Send Message';btn.disabled=false;
-    }
-  },5000);
-  document.body.appendChild(script);
+  })
+  .catch(()=>{
+    showToast('Something went wrong. Please try again.');
+  })
+  .finally(()=>{btn.textContent='Send Message';btn.disabled=false});
   return false;
 }
 
@@ -696,7 +667,6 @@ function addFbCard(data){
 }
 
 function loadFeedback(){
-  // Prevent loading multiple times
   if(document.getElementById('fbLoader')) return;
   const grid=document.getElementById('feedbackGrid');
   const loader=document.createElement('div');
@@ -704,16 +674,12 @@ function loadFeedback(){
   loader.style.cssText='text-align:center;padding:40px;color:var(--grey);font-size:14px;grid-column:1/-1';
   loader.textContent='Loading reviews...';
   grid.insertBefore(loader,grid.firstChild);
-
-  // Use JSONP-style via script tag to bypass CORS
-  const callbackName='gsFeedback_'+Date.now();
-  window[callbackName]=function(res){
+  fetch(SCRIPT_URL)
+  .then(r=>r.json())
+  .then(res=>{
     const l=document.getElementById('fbLoader');
     if(l)l.remove();
-    // Remove script tag
-    const s=document.getElementById('gsScript');
-    if(s)s.remove();
-    if(res && res.success && res.data && res.data.length>0){
+    if(res.success && res.data && res.data.length>0){
       res.data.forEach(item=>addFbCard({
         name:item.name||'',
         message:item.message||'',
@@ -721,16 +687,11 @@ function loadFeedback(){
         photo:item.photo||''
       }));
     }
-  };
-
-  const script=document.createElement('script');
-  script.id='gsScript';
-  script.src=SCRIPT_URL+'?callback='+callbackName;
-  script.onerror=function(){
+  })
+  .catch(()=>{
     const l=document.getElementById('fbLoader');
     if(l)l.remove();
-  };
-  document.body.appendChild(script);
+  });
 }
 
 // Load on initial page if feedback is active
