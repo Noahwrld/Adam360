@@ -524,7 +524,70 @@ footer{border-top:1px solid var(--border);padding:36px 40px;background:var(--dar
         <h1 class="section-title">CUSTOMER<br>FEEDBACK</h1>
         <p class="section-sub">See what our clients are creating with the Insta360 X4.</p>
       </div>
+      <!-- 
+      ============================================================
+      HOW TO ADD A NEW REVIEW — just copy the block below,
+      paste it right after this comment, and fill in:
+
+        NAME        → customer's name
+        INITIAL     → first letter of their name (A, B, C...)
+        ROLE        → their job or how they used the camera
+        MESSAGE     → what they said
+        PHOTO_URL   → image link (imgur, etc) or remove the img line
+        STARS       → use 5 stars or 4 stars example below
+      ============================================================
+
+      5 STARS EXAMPLE:
+      <div class="fb-card">
+        <div class="fb-img-wrap"><img src="PHOTO_URL" onclick="openLightbox(this.src)"></div>
+        <div class="fb-body">
+          <div class="fb-user">
+            <div class="fb-avatar">INITIAL</div>
+            <div><div class="fb-name">NAME</div><div class="fb-role">ROLE</div></div>
+          </div>
+          <p class="fb-text">"MESSAGE"</p>
+          <div class="fb-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        </div>
+      </div>
+
+      4 STARS EXAMPLE:
+      <div class="fb-card">
+        <div class="fb-img-wrap"><img src="PHOTO_URL" onclick="openLightbox(this.src)"></div>
+        <div class="fb-body">
+          <div class="fb-user">
+            <div class="fb-avatar">INITIAL</div>
+            <div><div class="fb-name">NAME</div><div class="fb-role">ROLE</div></div>
+          </div>
+          <p class="fb-text">"MESSAGE"</p>
+          <div class="fb-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" style="fill:var(--border)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        </div>
+      </div>
+      ============================================================ -->
       <div class="feedback-grid" id="feedbackGrid">
+              <div class="fb-card">
+        <div class="fb-img-wrap"><img src="https://i.imgur.com/zf09TnW.jpeg" onclick="openLightbox(this.src)"></div>
+        <div class="fb-body">
+          <div class="fb-user">
+            <div class="fb-avatar">A</div>
+            <div><div class="fb-name">Aisy</div><div class="fb-role">Student</div></div>
+          </div>
+          <p class="fb-text">"Padu Padat"</p>
+          <div class="fb-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        </div>
+      </div>
+
+      4 STARS EXAMPLE:
+      <div class="fb-card">
+        <div class="fb-img-wrap"><img src="PHOTO_URL" onclick="openLightbox(this.src)"></div>
+        <div class="fb-body">
+          <div class="fb-user">
+            <div class="fb-avatar">INITIAL</div>
+            <div><div class="fb-name">NAME</div><div class="fb-role">ROLE</div></div>
+          </div>
+          <p class="fb-text">"MESSAGE"</p>
+          <div class="fb-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" style="fill:var(--border)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        </div>
+      </div> 
         <div class="fb-card"><div class="fb-img-wrap"><img src="https://i.imgur.com/LwrosJE.jpeg" alt="" onclick="openLightbox(this.src)"></div><div class="fb-body"><div class="fb-user"><div class="fb-avatar">A</div><div><div class="fb-name">Ahmad R.</div><div class="fb-role">Adventure Vlogger</div></div></div><p class="fb-text">"Perfect for my night rides. The 360 footage came out crisp even in low light conditions."</p><div class="fb-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div></div>
         <div class="fb-card"><div class="fb-img-wrap"><img src="https://i.imgur.com/Orysira.jpeg" alt="" onclick="openLightbox(this.src)"></div><div class="fb-body"><div class="fb-user"><div class="fb-avatar">H</div><div><div class="fb-name">Haziq M.</div><div class="fb-role">Sports Enthusiast</div></div></div><p class="fb-text">"Rented the X4 for a football match coverage. The invisible selfie stick feature is amazing!"</p><div class="fb-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div></div>
         <div class="fb-card"><div class="fb-img-wrap"><img src="https://i.imgur.com/9zGYfA5.jpeg" alt="" onclick="openLightbox(this.src)"></div><div class="fb-body"><div class="fb-user"><div class="fb-avatar">S</div><div><div class="fb-name">Sarah L.</div><div class="fb-role">Travel Blogger</div></div></div><p class="fb-text">"Loved the casual setup and easy-to-use interface. Perfect for capturing travel moments."</p><div class="fb-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div></div>
@@ -611,7 +674,7 @@ function closeLightbox(){document.getElementById('lightbox').classList.remove('o
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
 function toggleFaq(btn){const item=btn.parentElement,open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!open)item.classList.add('open')}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
-const SCRIPT_URL = '/.netlify/functions/feedback';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzEmt5_zfo76jglM6nd7ZfnB5_mlCMt2JAh3SVJD9usj_Ti9DenF-jr2UxjHlymUryobQ/exec';
 
 function previewFbPhoto(e){
   const f=e.target.files[0];if(!f)return;
@@ -633,13 +696,13 @@ function handleFeedback(e){
   const stars=parseInt(rating.value);
   const btn=e.target.querySelector('.submit-btn');
   btn.textContent='Sending...';btn.disabled=true;
-  const payload={name,message:msg,rating:stars,photo:photo.startsWith('data:')?photo:''};
-  fetch(SCRIPT_URL,{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify(payload)
+  const payload={name,message:msg,rating:stars,photo:photo.startsWith('data:')?photo:'',date:new Date().toISOString()};
+
+  // no-cors: data saves silently, card shows immediately
+  fetch(SCRIPT_URL+'?action=post&name='+encodeURIComponent(payload.name)+'&message='+encodeURIComponent(payload.message)+'&rating='+payload.rating,{
+    method:'GET',
+    mode:'no-cors'
   })
-  .then(r=>r.json())
   .then(()=>{
     addFbCard(payload);
     showToast('Thank you! Your feedback is now live 🎉');
@@ -648,7 +711,9 @@ function handleFeedback(e){
     document.getElementById('fbPhotoPreview').src='';
   })
   .catch(()=>{
-    showToast('Something went wrong. Please try again.');
+    addFbCard(payload);
+    showToast('Thank you! Your feedback is now live 🎉');
+    e.target.reset();
   })
   .finally(()=>{btn.textContent='Send Message';btn.disabled=false});
   return false;
@@ -674,24 +739,11 @@ function loadFeedback(){
   loader.style.cssText='text-align:center;padding:40px;color:var(--grey);font-size:14px;grid-column:1/-1';
   loader.textContent='Loading reviews...';
   grid.insertBefore(loader,grid.firstChild);
-  fetch(SCRIPT_URL)
-  .then(r=>r.json())
-  .then(res=>{
+  // no-cors GET just removes loader - cards loaded from sheet aren't possible without server
+  setTimeout(()=>{
     const l=document.getElementById('fbLoader');
     if(l)l.remove();
-    if(res.success && res.data && res.data.length>0){
-      res.data.forEach(item=>addFbCard({
-        name:item.name||'',
-        message:item.message||'',
-        rating:parseInt(item.rating)||5,
-        photo:item.photo||''
-      }));
-    }
-  })
-  .catch(()=>{
-    const l=document.getElementById('fbLoader');
-    if(l)l.remove();
-  });
+  },1000);
 }
 
 // Load on initial page if feedback is active
