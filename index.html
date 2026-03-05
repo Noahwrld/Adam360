@@ -636,26 +636,50 @@ function handleFeedback(e){
 
   const payload={name,message:msg,rating:stars,photo:photo.startsWith('data:')?photo:''};
 
-  // Use no-cors mode — data saves to sheet, we just can't read the response
-  fetch(SCRIPT_URL,{
-    method:'POST',
-    mode:'no-cors',
-    headers:{'Content-Type':'text/plain'},
-    body:JSON.stringify(payload),
-  })
-  .then(()=>{
+  // Use JSONP for POST by encoding data in URL params
+  const callbackName='gsPost_'+Date.now();
+  window[callbackName]=function(res){
+    const s=document.getElementById('gsPostScript');
+    if(s)s.remove();
+    delete window[callbackName];
     addFbCard(payload);
     showToast('Thank you! Your feedback is now live 🎉');
     e.target.reset();
     document.getElementById('fbPhotoPreview').style.display='none';
     document.getElementById('fbPhotoPreview').src='';
-  })
-  .catch(()=>{
+    btn.textContent='Send Message';btn.disabled=false;
+  };
+
+  // Build URL with all params
+  const params=new URLSearchParams({
+    callback: callbackName,
+    name: payload.name,
+    message: payload.message,
+    rating: payload.rating,
+    action: 'post'
+  });
+
+  const script=document.createElement('script');
+  script.id='gsPostScript';
+  script.src=SCRIPT_URL+'?'+params.toString();
+  script.onerror=function(){
+    // Still show the card even if script errors
     addFbCard(payload);
     showToast('Thank you for your feedback! 🎉');
     e.target.reset();
-  })
-  .finally(()=>{btn.textContent='Send Message';btn.disabled=false});
+    btn.textContent='Send Message';btn.disabled=false;
+  };
+  // Timeout fallback after 5s
+  setTimeout(()=>{
+    if(document.getElementById('gsPostScript')){
+      document.getElementById('gsPostScript').remove();
+      addFbCard(payload);
+      showToast('Thank you for your feedback! 🎉');
+      e.target.reset();
+      btn.textContent='Send Message';btn.disabled=false;
+    }
+  },5000);
+  document.body.appendChild(script);
   return false;
 }
 
