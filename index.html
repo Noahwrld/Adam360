@@ -603,6 +603,7 @@ function showPage(id){
   document.getElementById('page-'+id).classList.add('active');
   document.querySelectorAll('.nav-link').forEach(l=>{l.classList.remove('active');if(l.dataset.page===id)l.classList.add('active')});
   window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='feedback') setTimeout(loadFeedback, 100);
 }
 function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
 function openLightbox(src){document.getElementById('lbImg').src=src;document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden'}
@@ -697,14 +698,7 @@ function loadFeedback(){
   });
 }
 
-// Load feedback when feedback page is shown
-const _origShowPage=showPage;
-function showPage(id){
-  _origShowPage(id);
-  if(id==='feedback') loadFeedback();
-}
-
-// Also load on initial page if feedback is active
+// Load on initial page if feedback is active
 document.addEventListener('DOMContentLoaded',()=>{
   if(document.getElementById('page-feedback').classList.contains('active')) loadFeedback();
 });
